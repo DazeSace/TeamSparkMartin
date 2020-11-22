@@ -83,50 +83,6 @@
         <p class="text-4xl font-semibold mx-auto">Und das sind wir.</p>
         <div class="flex justify-center flex-col md:flex-row">
             <x-team-card>
-                <x-slot name="img">/img/team/Klaus.png</x-slot>
-                <x-slot name="name">Klaus Kestel</x-slot>
-                <x-slot name="role">leitet das Projekt</x-slot>
-                Seit mich die Idee einmal mitten in der Nacht geweckt hat, lässt sie mich nicht mehr los.
-                Ich kann nicht anders, als kontinuierlich daran zu arbeiten; alles Andere raubt mir den Schlaf.
-            </x-team-card>
-            <x-team-card>
-                <x-slot name="img">/img/team/Theresa.png</x-slot>
-                <x-slot name="name">Theresa Mages</x-slot>
-                <x-slot name="role">organisiert und hat den Überblick</x-slot>
-                Ich mag Neues. Durch die Mitarbeit an Teamspark erlange ich neue Fähigkeiten, lerne mehr über mich
-                selbst und erhalte neue Einblicke, die nichts mit meinem Studium zu tun haben. Und auch ich werde eine
-                begeisterte Userin der Plattform sein.
-            </x-team-card>
-        </div>
-        <div class="flex justify-center">
-            <x-team-card>
-                <x-slot name="img">/uploads/avatar/default.jpg</x-slot>
-                <x-slot name="name">Tanja Heinrich</x-slot>
-                <x-slot name="role">programmiert und entwickelt</x-slot>
-                Erfolgreiche Projekte entstehen, wenn man mit den richtigen Menschen darüber spricht. Teamspark hilft
-                dabei, diese Menschen zu finden und als Entwicklerin liegt es mir am Herzen, das Ganze für dich so
-                einfach zu machen, wie es geht.
-            </x-team-card>
-        </div>
-        <div class="flex justify-center flex-col md:flex-row">
-            <x-team-card>
-                <x-slot name="img">/img/team/Matej.png</x-slot>
-                <x-slot name="name">Matej Majesky</x-slot>
-                <x-slot name="role">macht die UX und die Finanzen</x-slot>
-                Als Teil von Teamspark möchte ich etwas wirklich Wertbringendes auf die Beine stellen, von dem viele
-                Menschen in Zukunft profitieren können und das ihre Fähigkeiten sinnvoll für die Verwirklichung ihrer
-                Ideen einbringt.
-            </x-team-card>
-            <x-team-card>
-                <x-slot name="img">/uploads/avatar/default.jpg</x-slot>
-                <x-slot name="name">Martin Wundsam</x-slot>
-                <x-slot name="role">programmiert</x-slot>
-                Die Entwicklung von der Idee bis zum fertigen Projekt zu sehen ist für mich super interessant und gibt
-                unglaublich viel Erfahrung mit auf den Weg.
-            </x-team-card>
-        </div>
-        <div class="flex justify-center flex-col md:flex-row">
-            <x-team-card>
                 <x-slot name="img">/img/team/David.png</x-slot>
                 <x-slot name="name">David Melzer</x-slot>
                 <x-slot name="role">programmiert</x-slot>
@@ -137,6 +93,25 @@
                 <x-slot name="name">Sophie Rempen</x-slot>
                 <x-slot name="role">gestaltet das visuelle Design</x-slot>
                 Plötzlich ist man im Team und arbeitet an was Großem. So war’s bei mir und so funktioniert Teamspark.
+            </x-team-card>
+        </div>
+        <div class="flex justify-center flex-col md:flex-row">
+            <x-team-card>
+                <x-slot name="img">/img/team/Tanja.png</x-slot>
+                <x-slot name="name">Tanja Heinrich</x-slot>
+                <x-slot name="role">programmiert und entwickelt</x-slot>
+                Erfolgreiche Projekte entstehen, wenn man mit den richtigen Menschen darüber spricht. Teamspark hilft
+                dabei, diese Menschen zu finden und als Entwicklerin liegt es mir am Herzen, das Ganze für dich so
+                einfach wie möglich zu gestalten.
+            </x-team-card>
+
+            <x-team-card>
+                <x-slot name="img">/img/team/Matej.png</x-slot>
+                <x-slot name="name">Matej Majesky</x-slot>
+                <x-slot name="role">macht die UX und die Finanzen</x-slot>
+                Als Teil von Teamspark möchte ich etwas wirklich Wertbringendes auf die Beine stellen, von dem viele
+                Menschen in Zukunft profitieren können und das ihre Fähigkeiten sinnvoll für die Verwirklichung ihrer
+                Ideen einbringt.
             </x-team-card>
         </div>
         <div class="w-full h-2 bg-primary"></div>
