@@ -20,39 +20,6 @@
             </li>
         </ul>
     </div>
-    <h1 class="uppercase text-center font-semibold text-3xl tracking-extreme ml-4">Konto erstellen</h1>
-    <div class="w-1/3 mx-auto">
-        <div class="border-2 border-secondary h-16 border-b-0"></div>
-    </div>
-    <div class="bg-muted">
-        <div class="w-1/3 mx-auto border-2 border-secondary border-t-0 bg-white px-8 pb-16">
-            <form action="">
-                <label for="email" class="block">E-Mail Adresse</label>
-                <input id="email" type="email"
-                       class="w-full border-b-2 border-danger focus:outline-none py-1 px-4 focus:border-primary"
-                       name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                <label for="username" class="block mt-8">Benutzername</label>
-                <input id="username" type="text"
-                       class="w-full border-b-2 border-danger focus:outline-none py-1 px-4 focus:border-primary"
-                       name="username" value="{{ old('username') }}" required autocomplete="nickname" autofocus>
-
-                <label for="password" class="block mt-8">Passwort</label>
-                <input id="password" type="password"
-                       class="w-full border-b-2 border-danger focus:outline-none py-1 px-4 focus:border-primary"
-                       name="password" required autocomplete="new-password" autofocus>
-
-                <label for="password-confirm" class="block mt-8">Passwort bestätigen</label>
-                <input id="password-confirm" type="password"
-                       class="w-full border-b-2 border-danger focus:outline-none py-1 px-4 focus:border-primary"
-                       name="password-confirm" required autocomplete="new-password" autofocus>
-
-                <div class="text-right">
-                    <button type="submit" class="uppercase mt-8 text-primary bg-secondary font-semibold rounded-lg px-4 py-2">Konto erstellen</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     {{--    --}}
     <div class="container mx-auto">
