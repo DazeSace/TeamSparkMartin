@@ -24,7 +24,9 @@
     <title>@yield('webpage.title') {{ config('/config/app.name', 'Team Spark') }}</title>
 
     <!-- Styles -->
+    <link href="{{ asset('css/image-picker.css') }}" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -46,6 +48,12 @@
 
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+<script src="{{ asset('js/image-picker.js') }}"></script>
+<script>
+    $("#avatar").imagepicker(
+    )
+</script>
 @yield('webpage.scripts')
 </body>
 

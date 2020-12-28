@@ -72,6 +72,8 @@ class User extends Authenticatable
         }
     }
 
+
+
     public static function uploadImage($image, string $path)
     {
         return $image->store($path);
@@ -84,11 +86,11 @@ class User extends Authenticatable
         }
     }
 
-    public function getAvatar()
+    public function getAvatar(): string
     {
         if ($this->avatar) {
-            return Storage::url($this->avatar);
+            return $this->avatar;
         }
         return ('/uploads/avatar/default.jpg');
-    }
+            }
 }

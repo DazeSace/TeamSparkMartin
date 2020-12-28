@@ -10,21 +10,29 @@
                  style="width: 150px; height: 150px;  border-radius: 50%; margin-right: 25px; margin-bottom: 20px"
                  alt="img">
 
-            <form enctype="multipart/form-data" action="{{route('profiles.avatar', $user->username)}}" method="POST">
-                <br>
-                <input type="file" name="avatar" accept="image/*">
-                {{ csrf_field() }}
-                <button
-                    class="inline-block px-4 py-2 leading-none border-white hover:text-primary mt-4 lg:mt-0 font-bold"
-                    type="submit">Speichern
-                </button>
-            </form>
-
-
             <form method="POST" action="{{route('profiles.update', $user)}}">
                 @csrf
                 @method('PUT')
-
+                <p class="my-4">Profilbild</p>
+                <div class="w-10/12 lg:w-full mx-auto">
+                    <select  class="image-picker show-html " name="avatar" id="avatar">
+                        <option  data-img-src="/uploads/user/profil1.png"  value="1" {{ $user->avatar == '/uploads/user/profil1.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil2.png"  value="2" {{ $user->avatar == '/uploads/user/profil2.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil3.png"  value="3" {{ $user->avatar == '/uploads/user/profil3.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil4.png"  value="4" {{ $user->avatar == '/uploads/user/profil4.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil5.png"  value="5" {{ $user->avatar == '/uploads/user/profil5.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil6.png"  value="6" {{ $user->avatar == '/uploads/user/profil6.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil7.png"  value="7" {{ $user->avatar == '/uploads/user/profil7.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil8.png"  value="8" {{ $user->avatar == '/uploads/user/profil8.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil9.png"  value="9" {{ $user->avatar == '/uploads/user/profil9.png' ? 'selected' : ''}}> </option>
+                        <option  data-img-src="/uploads/user/profil10.png"  value="10" {{ $user->avatar == '/uploads/user/profil10.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil11.png"  value="11" {{ $user->avatar == '/uploads/user/profil11.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil12.png"  value="12" {{ $user->avatar == '/uploads/user/profil12.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil13.png"  value="13" {{ $user->avatar == '/uploads/user/profil13.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil14.png"  value="14" {{ $user->avatar == '/uploads/user/profil14.png' ? 'selected' : ''}}></option>
+                        <option  data-img-src="/uploads/user/profil15.png"  value="15" {{ $user->avatar == '/uploads/user/profil15.png' ? 'selected' : ''}}></option>
+                    </select>
+                </div>
                 <div class="field mt-10">
                     <label class="label" for="username">Username</label>
                     <div class="control">
