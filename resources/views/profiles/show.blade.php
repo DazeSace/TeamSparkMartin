@@ -1,29 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="mt-16">
-        <div class="mb-12">
+    <div class="mt-16 mb-6">
+        <div class="flex w-10/12 mx-auto justify-center lg:justify-end mb-4 ">
             @if ($user == Auth::user())
-                <p class="mt-10 text-center lg:float-right">
                     <a href="{{ route('profiles.edit', $user) }}"
-                       class="font-semibold border-secondary border-2 rounded-full py-3 px-8 lg:object-right lg:-ml-16 lg:mr-16">Profil
+                       class="border-secondary border-2 px-6 py-2 text-sm font-semibold rounded-lg ">Profil
                         bearbeiten</a>
-                </p>
             @endif
         </div>
-        <div class="flex flex-col lg:flex-row ">
+        <div class="flex flex-col mb-10 lg:flex-row ">
             <div class="lg:w-1/3 ">
-                <center class="ml-6">
+                <div class="">
                     <img src="{{ $user->getAvatar() }}"
-                         style="width: 150px; height: 150px;  border-radius: 50%; margin-right: 25px;"
-                         alt="img">
-                </center>
+                         alt="img"
+                         class="mx-auto rounded-full w-1/3 mb-6">
+                </div>
 
                 <p class="text-secondary uppercase text-xl font-semibold text-center">{{ $user-> firstName}} {{ $user-> lastName}}</p>
                 <p class="text-secondary text-center"> @ {{ $user ->username }}</p>
                 @if($user == Auth::user() || $user->showMail)
 
-                    <p class="text-secondary text-center mt-2">{{$user->email}} </p>
+                    <p class="text-secondary text-center ">{{$user->email}} </p>
 
                 @endif
                 @unless(Auth::user()->id == $user->id)
@@ -81,125 +79,100 @@
                 <div class=" border-t border-secondary mt-8 w-1/2 lg:w-2/3  mx-auto">
                 </div>
 
-                <div class="flex" style="display: inline-list-item; ">
-                    <div class="w-1/3 text-center mx-auto mt-5">
-                        <div class=" flex text-center " style="display: table; margin: auto">
-                            <p class="text-secondary font-semibold mb-4 text-center md:-mr-8 lg:-mr-16 ">Skills</p>
-                            @foreach($user->skills as $skill)
-                                @if($loop->iteration < 4)
-                                    <p class="bg-secondary text-primary text-sm rounded-full font-medium uppercase py-1 my-1 mx-2 md:-mr-8 lg:-mr-16">{{$skill->name}}</p>
-                                @endif
-                            @endforeach
-                            <div class="hidden" id="extendSkills">
-                                @foreach($user->skills as $skill)
-                                    @if($loop->iteration > 3)
-                                        <p class="bg-secondary text-primary rounded-full font-medium uppercase py-1 my-1 mx-2 md:-mr-8 lg:-mr-16">{{$skill->name}}</p>
-                                    @endif
-                                @endforeach
-                            </div>
+                <div class="flex flex-col mt-10 justify-center">
+                    <div class="flex flex-col" >
+                        <p class="text-secondary font-semibold text-center mb-4">Themen</p>
+                        @foreach($user->tags as $tag)
+                            @if($loop->iteration < 4)
+                                <div class="flex my-1 w-3/4 lg:w-1/3 mx-auto justify-center">
+                                    <a href="#" class="w-full md:max-w-xs break-words text-center text-sm text-secondary border-secondary border-2 px-6 ">{{ $tag->name }}</a>
+                                </div>
+                            @endif
+                        @endforeach
+                        <div class="hidden" id="extendTags">
                             @foreach($user->tags as $tag)
-                                @if($loop->iteration == 4)
-                                    <div class="mx-auto">
-                                        <p onclick="extendsSkillsOn()"
-                                           class="block text-center text-sm underline mt-2  md:-mr-8 lg:-mr-16"
-                                           id="extendsSkillsOn">Mehr anzeigen</p>
-                                        <p onclick="extendsSkillsOff()"
-                                           class="hidden text-center text-sm underline mt-2 md:-mr-8 lg:-mr-16"
-                                           id="extendsSkillsOff">Weniger anzeigen</p>
+                                @if($loop->iteration > 3)
+                                    <div class="flex my-1 w-3/4 lg:w-1/3 mx-auto justify-center">
+                                        <a href="#" class="w-full md:max-w-xs break-words text-center text-sm text-secondary border-secondary border-2 px-6 ">{{ $tag->name }}</a>
                                     </div>
                                 @endif
                             @endforeach
                         </div>
+                        @foreach($user->tags as $tag)
+                            @if($loop->iteration == 4)
+                                <div class="mx-auto">
+                                    <p onclick="extendsTagsOn()"
+                                       class="block text-center text-sm cursor-pointer underline mt-2"
+                                       id="extendsTagsOn">Mehr anzeigen</p>
+                                    <p onclick="extendsTagsOff()"
+                                       class="hidden text-center text-sm cursor-pointer underline mt-2  "
+                                       id="extendsTagsOff">Weniger anzeigen</p>
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
-
-                    <div class="w-1/3 text-center mx-auto mt-5">
-                        <div class="flex sm:flex-col text-center " style="display: table;">
-                            <p class="text-secondary font-semibold text-center mb-4 md:-mr-8 lg:-mr-16">Themen</p>
-                            @foreach($user->tags as $tag)
-                                @if($loop->iteration < 4)
-                                    <p class="text-sm text-secondary border-secondary font-medium uppercase border-2 my-1 px-1 mx-2 md:-mr-8 lg:-mr-16">{{$tag->name}}</p>
-                                @endif
-                            @endforeach
-                            <div class="hidden" id="extendTags">
-                                @foreach($user->tags as $tag)
-                                    @if($loop->iteration > 3)
-                                        <p class="text-sm text-secondary border-secondary font-medium uppercase border-2 my-1 px-1 mx-2 md:-mr-8 lg:-mr-16">{{$tag->name}}</p>
-                                    @endif
-                                @endforeach
-                            </div>
-                            @foreach($user->tags as $tag)
-                                @if($loop->iteration == 4)
-                                    <div class="mx-auto">
-                                        <p onclick="extendsTagsOn()"
-                                           class="block text-center text-sm underline mt-2 md:-mr-8 lg:-mr-16 "
-                                           id="extendsTagsOn">Mehr anzeigen</p>
-                                        <p onclick="extendsTagsOff()"
-                                           class="hidden text-center text-sm underline mt-2  md:-mr-8 lg:-mr-16"
-                                           id="extendsTagsOff">Weniger anzeigen</p>
+                    <div class="flex flex-col mt-6">
+                        <p class="text-secondary font-semibold mb-4 text-center">Skills</p>
+                        @foreach($user->skills as $skill)
+                            @if($loop->iteration < 4)
+                                <div class="flex w-3/4 lg:w-1/3 my-1 mx-auto">
+                                    <a href="#"class="w-full md:max-w-xs break-words text-center text-sm bg-secondary rounded-lg text-primary uppercase px-6 py-1">{{$skill->name}}</a>
+                                </div>
+                            @endif
+                        @endforeach
+                        <div class="hidden" id="extendSkills">
+                            @foreach($user->skills as $skill)
+                                @if($loop->iteration > 3)
+                                    <div class="flex my-1 w-3/4 lg:w-1/3 mx-auto">
+                                        <a href="#"class="w-full md:max-w-xs break-words text-center text-sm bg-secondary rounded-lg text-primary uppercase px-6 py-1">{{$skill->name}}</a>
                                     </div>
                                 @endif
                             @endforeach
                         </div>
+                        @foreach($user->tags as $tag)
+                            @if($loop->iteration == 4)
+                                <div class="mx-auto">
+                                    <p onclick="extendsSkillsOn()"
+                                       class="block text-center text-sm cursor-pointer underline mt-2  "
+                                       id="extendsSkillsOn">Mehr anzeigen</p>
+                                    <p onclick="extendsSkillsOff()"
+                                       class="hidden text-center text-sm cursor-pointer underline mt-2 "
+                                       id="extendsSkillsOff">Weniger anzeigen</p>
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>
-            <div class="mx-auto lg:mx-32 lg:w-2/3 ">
+            <div class="lg:w-2/3">
                 <div class="flex flex-col">
                     <div class="text-secondary mx-auto mt-12 lg:ml-0">
                         <p class="text-secondary font-semibold text-lg lg:float-left ">Über mich</p>
-                        <p class="mt-12 text-secondary">{{ $user -> selfdescription}}</p>
+                        <p class="mt-6 text-secondary">{{ $user -> selfdescription}}</p>
                     </div>
                 </div>
 
                 <div class=" border-t border-secondary mt-8 w-1/2 lg:w-full mx-auto">
                 </div>
 
-                <div class="mb-5">
-                    <div class="text-secondary mt-10  ">
-                        <p class="text-secondary font-semibold text-lg text-center lg:float-left flex flex-col">Projekte</p>
-                        <div class="text-secondary mt-4 text-center">
-                            <a class="mr-4">Aktuelle Projekte</a>
-                            <a> Abgeschlossene Projekte</a>
-                        </div>
+                <div class="flex flex-col">
+                    <p class="text-secondary text-center lg:text-left font-semibold text-lg mt-8">Projekte</p>
+                    <div class="flex flex-col lg:flex-row mt-2 flex-wrap ">
+                        @foreach($user->projects as $project)
+                            <div class="flex w-10/12 lg:w-1/4 mx-auto lg:mx-4 mt-6 flex-col">
+                                <div>
+                                    <img src="/uploads/project/default.jpg" alt="img" class="w-full">
+                                </div>
+                                <p class="text-center mt-4">{{ $project->title }}</p>
+                            </div>
+                        @endforeach
                     </div>
-                </div>
-                <div class="container mt-8 "
-                     style="background-color: rgba(200,200,200, 0.15); border-radius: 25px; padding: 20px">
-                    <div class="w-1/3 mx-6">
-                        <img src="/uploads/project/default.jpg" alt="img" class="object-cover">
-                    </div>
-                    {{--                   @foreach($users-> projects as $project)--}}
-                    {{--                        @if($loop->iteration % 2 == 0)--}}
-                    {{--                            <div class="w-1/2">--}}
-                    {{--                                <div class="flex">--}}
-                    {{--                                    <div class="w-1/3 text-center">--}}
-                    {{--                                        <div class="ml-6 mb-4">--}}
-                    {{--                                            <p class="text-3xl font-semibold uppercase">{{ $project->title }}</p>--}}
-                    {{--                                        </div>--}}
-                    {{--                                    </div>--}}
-                    {{--                                </div>--}}
-                    {{--                                <div class="flex">--}}
-                    {{--                                    <div class="w-2/3 pr-10" >--}}
-                    {{--                                        <p>{{ $project->summary }}</p>--}}
-                    {{--                                    </div>--}}
-                    {{--                                </div>--}}
-                    {{--                                <div class="flex">--}}
-                    {{--                                    <div class="w-1/3 mx-6">--}}
-
-                    {{--                                    </div>--}}
-                    {{--                                    <div class="w-2/3 text-left mt-6">--}}
-                    {{--                                        <a class="font-semibold border-secondary border-2 rounded-full py-1 px-12 " href="{{ $project->path() }}">Ansehen</a>--}}
-                    {{--                                    </div>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        @endif--}}
-                    {{--                    @endforeach--}}
                 </div>
             </div>
 
         </div>
 
-
+    </div>
         @endsection()
 
         @section('webpage.scripts')
