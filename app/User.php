@@ -21,6 +21,7 @@ class User extends Authenticatable
         'selfdescription',
         'firstName',
         'lastName',
+        'avatar',
         'email',
         'password',
         'showMail',
@@ -91,6 +92,6 @@ class User extends Authenticatable
         if ($this->avatar) {
             return $this->avatar;
         }
-        return ('/uploads/avatar/default.jpg');
+        return ('/uploads/user/profil1.png');
             }
 }

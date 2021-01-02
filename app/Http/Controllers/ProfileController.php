@@ -41,6 +41,7 @@ class ProfileController extends Controller
         $request->merge(['showMail' => array_key_exists('showMail', $request->validated())]);
         $user->tags()->sync(request('tags'));
         $user->skills()->sync(request('skills'));
+        $user->fill($request->all());
         if(request('avatar') == '1' ){
             $user->avatar = "/uploads/user/profil1.png";
         }
@@ -87,7 +88,6 @@ class ProfileController extends Controller
             $user->avatar = "/uploads/user/profil15.png";
         }
 
-        $user->fill($request->all());
         $user->save();
         return redirect(route('profiles.show', $user->username));
     }
