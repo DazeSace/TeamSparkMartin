@@ -144,18 +144,18 @@
                     </div>
                 </div>
             </div>
-            <div class="lg:w-2/3">
-                <div class="flex flex-col">
-                    <div class="text-secondary mx-auto mt-12 lg:ml-0">
-                        <p class="text-secondary font-semibold text-lg lg:float-left ">Über mich</p>
-                        <p class="mt-6 text-secondary">{{ $user -> selfdescription}}</p>
+            <div class="md:w-2/3">
+                <div class="flex justify-center flex-col">
+                    <div class="text-secondary mx-6 mt-12">
+                        <p class="text-secondary text-center md:text-left text-lg">Über mich</p>
+                        <p class="mt-6 w-full text-center md:text-left text-secondary ">{{ $user -> selfdescription}}</p>
                     </div>
                 </div>
 
                 <div class=" border-t border-secondary mt-8 w-1/2 lg:w-full mx-auto">
                 </div>
 
-                <div class="flex flex-col">
+                <div class="flex flex-col mx-6">
                     <p class="text-secondary text-center lg:text-left font-semibold text-lg mt-8">Projekte</p>
                     <div class="flex flex-col lg:flex-row mt-2 flex-wrap ">
                         @foreach($user->projects as $project)

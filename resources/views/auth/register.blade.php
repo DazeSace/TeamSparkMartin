@@ -88,23 +88,6 @@
                         </div>
 
                         <div class="flex flex-wrap mb-6">
-                            <label for="dob" class="block text-gray-700 text-sm font-bold mb-2">
-                                {{ __('Geburtsdatum') }}:
-                            </label>
-
-                            <input id="dob" type="date"
-                                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('dob')  border-red-500 @enderror"
-                                   name="dob" value="{{ old('dob') }}" required autocomplete="dob" autofocus>
-
-                            @error('dob')
-                            <p class="text-red-500 text-xs italic mt-4">
-                                {{ $message }}
-                            </p>
-                            @enderror
-                        </div>
-
-
-                        <div class="flex flex-wrap mb-6">
                             <label for="email" class="block text-gray-700 text-sm font-bold mb-2">
                                 {{ __('E-Mail Addresse') }}:
                             </label>
