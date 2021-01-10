@@ -38,6 +38,6 @@ class Project extends Model
         if ($this->image) {
             return $this->image;
         }
-        return ('/uploads/projects/projekt1.png');
+        return $this->image;
     }
 }

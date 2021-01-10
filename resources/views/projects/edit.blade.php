@@ -2,7 +2,7 @@
 
 @section('content')
     {{-- MOBILE --}}
-    <div id="page" class="container mx-auto mt-12 lg:hidden">
+    <div id="image-button" class="container mx-auto mt-12 lg:hidden">
         <form method="POST" action="{{ $project->path() }}">
             @csrf
             @method('PUT')
@@ -83,7 +83,27 @@
                 <p class="text-secondary text-center"> erstellt von <b>{{$project->users()->firstOrFail()->username}}</b></p>
             </div>
             <div class="mb-6">
-                <img src="/uploads/project/default.jpg" alt="img" class="w-2/3 mx-auto object-cover">
+                <img src="{{ $project->getAvatar() }}" alt="img" class="w-2/3 mx-auto object-cover">
+            </div>
+            <p class="text-center accordion mt-3 mb-1">Prjektbild auswählen</p>
+            <div class="panel bg-muted rounded-lg">
+                <select  class="image-picker show-html " name="image" id="image">
+                    <option  data-img-src="/uploads/projects/projekt1.png"  value="1" {{ $project->image == '/uploads/projects/projekt1.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt2.png"  value="2" {{ $project->image == '/uploads/projects/projekt2.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt3.png"  value="3" {{ $project->image == '/uploads/projects/projekt3.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt4.png"  value="4" {{ $project->image == '/uploads/projects/projekt4.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt5.png"  value="5" {{ $project->image == '/uploads/projects/projekt5.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt6.png"  value="6" {{ $project->image == '/uploads/projects/projekt6.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt7.png"  value="7" {{ $project->image == '/uploads/projects/projekt7.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt8.png"  value="8" {{ $project->image == '/uploads/projects/projekt8.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt9.png"  value="9" {{ $project->image == '/uploads/projects/projekt9.png' ? 'selected' : ''}}> </option>
+                    <option  data-img-src="/uploads/projects/projekt10.png"  value="10" {{ $project->image == '/uploads/projects/projekt10.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt11.png"  value="11" {{ $project->image == '/uploads/projects/projekt11.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt12.png"  value="12" {{ $project->image == '/uploads/projects/projekt12.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt13.png"  value="13" {{ $project->image == '/uploads/projects/projekt13.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt14.png"  value="14" {{ $project->image == '/uploads/projects/projekt14.png' ? 'selected' : ''}}></option>
+                    <option  data-img-src="/uploads/projects/projekt15.png"  value="15" {{ $project->image == '/uploads/projects/projekt15.png' ? 'selected' : ''}}></option>
+                </select>
             </div>
             <div class="mt-4 mx-12">
                 <p class="text-center {{ $errors->has('summary') ? 'text-red-600 text-sm' : 'text-secondary' }}"
@@ -338,7 +358,9 @@
                 <div class="w-2/3 mx-4">
                     <div class="flex">
                         <div class="w-1/2 pr-16 mt-10 ">
-                            <div id="image-upload"></div>
+                            <div>
+                                <img src="{{ $project->getAvatar() }}" class="">
+                            </div>
                         </div>
                         <div class="w-1/2 -ml-4 mr-12 mt-10">
                             <div class="flex">

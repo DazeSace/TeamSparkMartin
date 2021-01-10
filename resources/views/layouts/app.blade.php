@@ -53,6 +53,8 @@
 <script>
     $("#avatar").imagepicker(
     )
+    $("#image").imagepicker(
+    )
 </script>
 @yield('webpage.scripts')
 </body>
