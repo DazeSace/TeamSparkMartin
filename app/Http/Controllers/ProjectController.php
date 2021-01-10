@@ -21,6 +21,7 @@ class ProjectController extends Controller
             $tags = \App\Tag::all();
             $skills = \App\Skill::all();
             $users = \App\User::where('id', '!=', auth()->id())->get()->sortBy("username");
+
             return view('projects.create', compact([
                 'tags',
                 'skills',
@@ -33,6 +34,55 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $project = Project::create($this->validateCreateProject());
+        if(request('image') == '1' ){
+            $project->image = "/uploads/projects/projekt1.png";
+        }
+        if(request('image') == '2' ){
+            $project->image = "/uploads/projects/projekt2.png";
+        }
+        if(request('image') == '3' ){
+            $project->image = "/uploads/projects/projekt3.png";
+        }
+        if(request('image') == '4' ){
+            $project->image = "/uploads/projects/projekt4.png";
+        }
+        if(request('image') == '5' ){
+            $project->image = "/uploads/projects/projekt5.png";
+        }
+        if(request('image') == '6' ){
+            $project->image = "/uploads/projects/projekt6.png";
+        }
+        if(request('image') == '7' ){
+            $project->image = "/uploads/projects/projekt7.png";
+        }
+        if(request('image') == '8' ){
+            $project->image = "/uploads/projects/projekt8.png";
+        }
+        if(request('image') == '9' ){
+            $project->image = "/uploads/projects/projekt9.png";
+        }
+        if(request('image') == '10' ){
+            $project->image = "/uploads/projects/projekt10.png";
+        }
+        if(request('image') == '11' ){
+            $project->image = "/uploads/projects/projekt11.png";
+        }
+        if(request('image') == '12' ){
+            $project->image = "/uploads/projects/projekt12.png";
+        }
+        if(request('image') == '13' ){
+            $project->image = "/uploads/projects/projekt13.png";
+        }
+        if(request('image') == '14' ){
+            $project->image = "/uploads/projects/projekt14.png";
+        }
+        if(request('image') == '15' ){
+            $project->image = "/uploads/projects/projekt15.png";
+        }
+        if(request('image') == '16' ){
+            $project->image = "/uploads/projects/projekt16.png";
+        }
+        $project->save();
         $project->users()->attach(auth()->user(), ['role' => 'creator']);
         $project->users()->attach(request('users'), ['role' => 'invited']);
         $project->tags()->attach(request('tags'));

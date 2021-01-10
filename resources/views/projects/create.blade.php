@@ -2,7 +2,7 @@
 
 @section('content')
     {{-- MOBILE --}}
-    <div id="page" class="container mx-auto mt-12 lg:hidden">
+    <div id="image-button" class="container mx-auto mt-12 lg:hidden">
         <form method="POST" action="/projects">
             @csrf
             <div class="flex justify-center lg:justify-end lg:mr-6 mb-6">
@@ -27,9 +27,28 @@
                     id="titleTextareaMobile"
                 >{{ old('title') }}</textarea>
             </div>
-
             <div class="mb-6">
-                <img src="/uploads/project/default.jpg" alt="img" class="w-2/3 mx-auto object-cover">
+                <img src="/uploads/projects/projekt1.png" alt="img" class="w-2/3 mx-auto object-cover">
+            </div>
+            <p class="text-center accordion mt-3 mb-1 cursor-pointer">Projektbild auswählen</p>
+            <div class="panel bg-muted rounded-lg">
+                <select  class="image-picker show-html " name="image" id="image">
+                    <option  data-img-src="/uploads/projects/projekt1.png"  value="1" selected></option>
+                    <option  data-img-src="/uploads/projects/projekt2.png"  value="2" ></option>
+                    <option  data-img-src="/uploads/projects/projekt3.png"  value="3" ></option>
+                    <option  data-img-src="/uploads/projects/projekt4.png"  value="4" ></option>
+                    <option  data-img-src="/uploads/projects/projekt5.png"  value="5" ></option>
+                    <option  data-img-src="/uploads/projects/projekt6.png"  value="6" ></option>
+                    <option  data-img-src="/uploads/projects/projekt7.png"  value="7" ></option>
+                    <option  data-img-src="/uploads/projects/projekt8.png"  value="8" ></option>
+                    <option  data-img-src="/uploads/projects/projekt9.png"  value="9" ></option>
+                    <option  data-img-src="/uploads/projects/projekt10.png"  value="10" ></option>
+                    <option  data-img-src="/uploads/projects/projekt11.png"  value="11" ></option>
+                    <option  data-img-src="/uploads/projects/projekt12.png"  value="12" ></option>
+                    <option  data-img-src="/uploads/projects/projekt13.png"  value="13" ></option>
+                    <option  data-img-src="/uploads/projects/projekt14.png"  value="14" ></option>
+                    <option  data-img-src="/uploads/projects/projekt15.png"  value="15" ></option>
+                </select>
             </div>
             <div class="mt-4 mx-12">
                 <label class="text-secondary text-lg font-semibold" for="summary">Kurzbeschreibung</label>
@@ -173,8 +192,30 @@
                 </div>
                 <div class="w-2/3 mx-4">
                     <div class="flex">
-                        <div class="w-1/2 pr-16 mt-10 ">
-                            <div id="image-upload"></div>
+                        <div class="w-1/2 pr-16 mt-10 " id="image-button">
+                            <div>
+                                <img src="/uploads/projects/projekt1.png" class="">
+                            </div>
+                            <p class="text-center accordion mt-3 mb-1 cursor-pointer">Projektbild auswählen</p>
+                            <div class="panel bg-muted rounded-lg">
+                                <select  class="image-picker show-html " name="image" id="image2">
+                                    <option  data-img-src="/uploads/projects/projekt1.png"  value="1" selected></option>
+                                    <option  data-img-src="/uploads/projects/projekt2.png"  value="2" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt3.png"  value="3" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt4.png"  value="4" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt5.png"  value="5" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt6.png"  value="6" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt7.png"  value="7" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt8.png"  value="8" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt9.png"  value="9" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt10.png"  value="10" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt11.png"  value="11" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt12.png"  value="12" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt13.png"  value="13" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt14.png"  value="14" ></option>
+                                    <option  data-img-src="/uploads/projects/projekt15.png"  value="15" ></option>
+                                </select>
+                            </div>
                         </div>
                         <div class="w-1/2 -ml-4 mr-12 mt-10">
                             <div>
