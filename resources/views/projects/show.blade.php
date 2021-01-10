@@ -55,7 +55,7 @@
         </div>
         <div class="mb-6">
 
-            <img src="/uploads/project/default.jpg" alt="img" class="w-2/3 mx-auto object-cover">
+            <img src="{{ $project->getAvatar() }}" alt="img" class="w-2/3 mx-auto object-cover">
         </div>
         <div class="mx-12 md:mx-20 mb-6">
             <p class="text-secondary text-center">{{ $project->summary }}</p>
@@ -416,7 +416,7 @@
     <div class="w-2/3 mx-4">
         <div class="flex">
             <div class="w-1/2 pr-16 mt-10 ">
-                <img src="/uploads/project/default.jpg" alt="img" class="object-cover">
+                <img src="{{ $project->getAvatar() }}" alt="img" class="object-cover">
             </div>
             <div class="w-1/2 -ml-4 mt-10">
                 <p class="text-secondary mr-12">{{ $project->summary }}</p>

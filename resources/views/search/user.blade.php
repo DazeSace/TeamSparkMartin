@@ -5,7 +5,7 @@
     <a class="underline" href="{{ route('search.user') }}">Zurück</a>
 </div>
 <div class="mt-8 hidden lg:block">
-    <img src="{{ 'https://picsum.photos/id/'.$project->id.'/500/300' }}" alt="#">
+    <img src="{{ $project->getAvatar() }}" alt="#">
 </div>
 <div class="w-2/3 mt-8 hidden lg:flex">
     @foreach($project->skills as $skill)

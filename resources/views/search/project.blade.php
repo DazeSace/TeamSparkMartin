@@ -43,7 +43,7 @@
             <div class="w-full lg:w-1/2">
                 <a href="{{ route('projects.show', $project) }}">
                     <img class="w-full"
-                         src="{{ 'https://picsum.photos/id/'.$project->id.'/500/300' }}" alt="#">
+                         src="{{ $project->getAvatar() }}" alt="#">
                 </a>
             </div>
             <div class="w-full lg:w-1/2 flex flex-col lg:flex-row">

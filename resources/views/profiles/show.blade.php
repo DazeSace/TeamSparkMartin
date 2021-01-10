@@ -159,9 +159,9 @@
                     <p class="text-secondary text-center lg:text-left font-semibold text-lg mt-8">Projekte</p>
                     <div class="flex flex-col lg:flex-row mt-2 flex-wrap ">
                         @foreach($user->projects as $project)
-                            <div class="flex w-10/12 lg:w-1/4 mx-auto lg:mx-4 mt-6 flex-col">
+                            <div class="flex w-10/12 lg:w-1/4 mx-auto lg:mx-4 mt-6 flex-col cursor-pointer" onclick="window.location.href = '{{ $project->path() }}';">
                                 <div>
-                                    <img src="/uploads/project/default.jpg" alt="img" class="w-full">
+                                    <img src="{{ $project->getAvatar() }}" alt="img" class="w-full">
                                 </div>
                                 <p class="text-center mt-4">{{ $project->title }}</p>
                             </div>

@@ -16,7 +16,7 @@
             <a href="{{ route('search.user.project', $project) }}"
                class="w-full lg:w-1/2 flex flex-col text-center py-8 lg:px-8">
                 <p class="font-semibold text-xl tracking-wider uppercase">{{ $project->title }}</p>
-                <img class="flex-auto w-full mt-8" src="{{ 'https://picsum.photos/id/'.$project->id.'/500/300' }}"
+                <img class="flex-auto w-full mt-8" src="{{ $project->getAvatar() }}"
                      alt="#">
             </a>
             @endif

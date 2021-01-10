@@ -11,7 +11,7 @@
                             <p class="text-center text-base font-semibold uppercase mb-3 lg:text-left">{{ $project->title }}</p>
                             <div class="flex flex-col lg:flex-row">
                                 <div class="lg:w-1/3">
-                                    <img src="/uploads/project/default.jpg" alt="img" class="object-cover">
+                                    <img src="{{ $project->getAvatar() }}" alt="img" class="object-cover">
                                 </div>
                                 <div class="lg:w-2/3 lg:ml-6 mt-4 lg:mt-0" >
                                     <p>{{ $project->summary }}</p>

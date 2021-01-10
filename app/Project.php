@@ -33,5 +33,11 @@ class Project extends Model
     public function skills(){
         return $this->belongsToMany(Skill::class);
     }
-
+    public function getAvatar(): string
+    {
+        if ($this->image) {
+            return $this->image;
+        }
+        return ('/uploads/projects/projekt1.png');
+    }
 }
