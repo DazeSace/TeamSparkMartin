@@ -55,6 +55,8 @@
     )
     $("#image").imagepicker(
     )
+    $("#image2").imagepicker(
+    )
 </script>
 @yield('webpage.scripts')
 </body>

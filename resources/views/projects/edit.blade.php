@@ -85,7 +85,7 @@
             <div class="mb-6">
                 <img src="{{ $project->getAvatar() }}" alt="img" class="w-2/3 mx-auto object-cover">
             </div>
-            <p class="text-center accordion mt-3 mb-1">Prjektbild auswählen</p>
+            <p class="text-center accordion mt-3 mb-1 cursor-pointer">Projektbild auswählen</p>
             <div class="panel bg-muted rounded-lg">
                 <select  class="image-picker show-html " name="image" id="image">
                     <option  data-img-src="/uploads/projects/projekt1.png"  value="1" {{ $project->image == '/uploads/projects/projekt1.png' ? 'selected' : ''}}></option>
@@ -195,7 +195,7 @@
     {{-- DESKTOP --}}
 
 
-    <div class="flex flex-col mt-8 hidden lg:block">
+    <div class="flex flex-col mt-8 hidden lg:block" id="image-button">
         <form method="POST" action="{{ $project->path() }}">
             @csrf
             @method('PUT')
@@ -357,9 +357,29 @@
                 </div>
                 <div class="w-2/3 mx-4">
                     <div class="flex">
-                        <div class="w-1/2 pr-16 mt-10 ">
+                        <div class="flex flex-col w-1/2 pr-16 mt-10 ">
                             <div>
                                 <img src="{{ $project->getAvatar() }}" class="">
+                            </div>
+                            <p class="text-center accordion mt-3 mb-1 cursor-pointer">Projektbild auswählen</p>
+                            <div class="panel bg-muted rounded-lg">
+                                <select  class="image-picker show-html " name="image" id="image2">
+                                    <option  data-img-src="/uploads/projects/projekt1.png"  value="1" {{ $project->image == '/uploads/projects/projekt1.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt2.png"  value="2" {{ $project->image == '/uploads/projects/projekt2.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt3.png"  value="3" {{ $project->image == '/uploads/projects/projekt3.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt4.png"  value="4" {{ $project->image == '/uploads/projects/projekt4.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt5.png"  value="5" {{ $project->image == '/uploads/projects/projekt5.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt6.png"  value="6" {{ $project->image == '/uploads/projects/projekt6.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt7.png"  value="7" {{ $project->image == '/uploads/projects/projekt7.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt8.png"  value="8" {{ $project->image == '/uploads/projects/projekt8.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt9.png"  value="9" {{ $project->image == '/uploads/projects/projekt9.png' ? 'selected' : ''}}> </option>
+                                    <option  data-img-src="/uploads/projects/projekt10.png"  value="10" {{ $project->image == '/uploads/projects/projekt10.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt11.png"  value="11" {{ $project->image == '/uploads/projects/projekt11.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt12.png"  value="12" {{ $project->image == '/uploads/projects/projekt12.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt13.png"  value="13" {{ $project->image == '/uploads/projects/projekt13.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt14.png"  value="14" {{ $project->image == '/uploads/projects/projekt14.png' ? 'selected' : ''}}></option>
+                                    <option  data-img-src="/uploads/projects/projekt15.png"  value="15" {{ $project->image == '/uploads/projects/projekt15.png' ? 'selected' : ''}}></option>
+                                </select>
                             </div>
                         </div>
                         <div class="w-1/2 -ml-4 mr-12 mt-10">

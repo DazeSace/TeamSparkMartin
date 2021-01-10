@@ -129,7 +129,7 @@
                                 @endif
                             @endforeach
                         </div>
-                        @foreach($user->tags as $tag)
+                        @foreach($user->skills as $skill)
                             @if($loop->iteration == 4)
                                 <div class="mx-auto">
                                     <p onclick="extendsSkillsOn()"

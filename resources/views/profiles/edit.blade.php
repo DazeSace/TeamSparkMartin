@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-center accordion mt-3 mb-1">Profilbild auswählen</p>
+                        <p class="text-center accordion mt-3 mb-1 cursor-pointer">Profilbild auswählen</p>
                         <div class="panel bg-muted rounded-lg">
                             <select  class="image-picker show-html " name="avatar" id="avatar">
                                 <option  data-img-src="/uploads/user/profil1.png"  value="1" {{ $user->avatar == '/uploads/user/profil1.png' ? 'selected' : ''}}></option>
