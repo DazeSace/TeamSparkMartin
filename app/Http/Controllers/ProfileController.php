@@ -38,10 +38,9 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request)
     {
         $user = Auth::user();
-        $request->merge(['showMail' => array_key_exists('showMail', $request->validated())]);
-        $user->tags()->sync(request('tags'));
-        $user->skills()->sync(request('skills'));
+
         $user->fill($request->all());
+        $user->showMail = $request->showMail;
         if(request('avatar') == '1' ){
             $user->avatar = "/uploads/user/profil1.png";
         }
@@ -87,9 +86,11 @@ class ProfileController extends Controller
         if(request('avatar') == '15' ){
             $user->avatar = "/uploads/user/profil15.png";
         }
-
+        $user->tags()->sync(request('tags'));
+        $user->skills()->sync(request('skills'));
         $user->save();
         return redirect(route('profiles.show', $user->username));
+        //return $input = $request;
     }
 
     public function updateAvatar(AvatarRequest $request)

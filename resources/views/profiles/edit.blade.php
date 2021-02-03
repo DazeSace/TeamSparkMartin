@@ -15,23 +15,7 @@
                                 <img src="{{ $user->getAvatar() }}" alt="img" class="rounded-full border md:w-2/5 lg:w-1/2 mx-auto ">
                             </div>
                             <div class="flex mx-auto rounded-lg bg-muted mt-4 mb-1 py-1 px-3">
-                                <p class="text-lg">{{ $user->username }}</p>
-                            </div>
-                            <div class="">
-                                <label class="label" for="email">E-Mail</label>
-                                <div class="control">
-                                    <input
-                                        class="w-full md:w-3/4 py-1 px-2 border-2 border-secondary rounded {{ $errors->has('firstName') ? 'is-danger' : '' }}"
-                                        name="email"
-                                        id="email"
-                                        value="{{ $errors->isEmpty() ? $user->email : old('email') }}"
-                                    >
-
-                                    @if($errors->has('email'))
-                                        <p class="help is-danger">{{ $errors->first('email') }}</p>
-                                    @endif
-
-                                </div>
+                                <p class="text-lg">{{ "@".$user->username }}</p>
                             </div>
                         </div>
                         <p class="text-center accordion mt-3 mb-1 cursor-pointer">Profilbild auswählen</p>
@@ -53,6 +37,29 @@
                                 <option  data-img-src="/uploads/user/profil14.png"  value="14" {{ $user->avatar == '/uploads/user/profil14.png' ? 'selected' : ''}}></option>
                                 <option  data-img-src="/uploads/user/profil15.png"  value="15" {{ $user->avatar == '/uploads/user/profil15.png' ? 'selected' : ''}}></option>
                             </select>
+                        </div>
+                        <div class="flex flex-wrap justify-center mt-4">
+                            <label class="block">
+                                <input type="hidden" name="showMail" value="0">
+                                <input type="checkbox" class="mr-2 leading-tight" name="showMail" value="1" {{$user->showMail == '1' ? 'checked' : ''}}>
+                                <span class="text-sm">E-Mail im Profil anzeigen</span>
+                            </label>
+                        </div>
+                        <div class="">
+                            <label class="label" for="email">E-Mail</label>
+                            <div class="control">
+                                <input
+                                    class="w-full md:w-3/4 py-1 px-2 border-2 border-secondary rounded {{ $errors->has('firstName') ? 'is-danger' : '' }}"
+                                    name="email"
+                                    id="email"
+                                    value="{{ $errors->isEmpty() ? $user->email : old('email') }}"
+                                >
+
+                                @if($errors->has('email'))
+                                    <p class="help is-danger">{{ $errors->first('email') }}</p>
+                                @endif
+
+                            </div>
                         </div>
                     </div>
                     <div class="flex flex-col md:w-1/2 mx-6">
@@ -95,10 +102,9 @@
                         <label class="label ml-6" for="selfdescription">Über mich</label>
 
                         <div class="control mx-6">
-                        <textarea class="w-full py-1 px-2 border-2 border-secondary rounded @error('selfdescription') is-danger @enderror"
+                        <textarea class="w-full h-32 py-1 px-2 border-2 border-secondary overflow-y-scroll outline-none resize-none rounded @error('selfdescription') is-danger @enderror"
                                   name="selfdescription"
                                   id="selfdescription"
-                                  style="height: max-content"
                         >{{ $errors->isEmpty() ? $user->selfdescription : old('selfdescription') }}</textarea>
 
                             @error('selfdescription')

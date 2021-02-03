@@ -105,11 +105,13 @@
                 @endforeach
                 <div class="hidden -mt-1" id="extendTags">
                     @foreach($project->tags as $tag)
-                        <div class="my-2">
-                            <div class="flex justify-center">
-                                <a href="#" class="w-full md:max-w-xs break-words text-center text-sm text-secondary border-secondary border-2 px-6 ">{{ $tag->name }}</a>
+                        @if($loop->iteration > 3)
+                            <div class="my-2">
+                                <div class="flex justify-center">
+                                    <a href="#" class="w-full md:max-w-xs break-words text-center text-sm text-secondary border-secondary border-2 px-6 ">{{ $tag->name }}</a>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
                 @foreach($project->tags as $tag)

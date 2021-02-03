@@ -73,7 +73,7 @@ class RegisterController extends Controller
             'lastName' => $data['lastName'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'showMail' => array_key_exists('showMail', $data),
+            'showMail' => "1",
             'dataPrivacy' => array_key_exists('dataPrivacy', $data),
             'tos' => array_key_exists('tos', $data)
         ]);

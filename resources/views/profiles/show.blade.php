@@ -16,10 +16,9 @@
                          alt="img"
                          class="mx-auto rounded-full w-1/3 mb-6">
                 </div>
-
                 <p class="text-secondary uppercase text-xl font-semibold text-center">{{ $user-> firstName}} {{ $user-> lastName}}</p>
-                <p class="text-secondary text-center"> @ {{ $user ->username }}</p>
-                @if($user == Auth::user() || $user->showMail)
+                <p class="text-secondary text-center"> {{"@" . $user ->username }}</p>
+                @if($user == Auth::user() && $user->showMail == 1)
 
                     <p class="text-secondary text-center ">{{$user->email}} </p>
 

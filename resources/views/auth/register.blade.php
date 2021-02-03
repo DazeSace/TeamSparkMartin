@@ -1,25 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="bg-danger p-2 text-lg mb-4">
-        <p><span class="font-semibold">Achtung: </span>Bei dieser Webseite handelt es sich um einen Prototypen. Das
-            bedeutet, dass wir momentan <span class="font-semibold">nicht gewährleisten</span> können, <span
-                class="font-semibold">dass eure Daten sicher bzw. geschützt</span> sind. Das wird sich natürlich ändern
-            und wir werden euch sofort informieren, wenn ihr euch hier keine Sorgen bezüglich des Datenschutzes machen
-            müsst. Außerdem werden bei einem Update (ca. alle 2 Wochen) alle Daten (Projekte, Profile, etc.) gelöscht.
-        </p>
-        <p class="mt-2 font-semibold">Wenn ihr euch trotzdem ein wenig umschauen wollt, empfehlen wir Euch folgende
-            Tools:</p>
-        <ul class="list-disc pl-8">
-            <li><a href="https://10minutemail.com/" target="_blank" class="hover:text-primary font-semibold">10-Minute-Mail</a>
-                | Um nicht eure eigene Email-Adresse nutzen zu müssen.
-            </li>
-            <li><a href="https://de.fakenamegenerator.com/gen-random-gr-gr.php" target="_blank"
-                   class="hover:text-primary font-semibold">Fake Name Generator</a> | Um eine imaginäre Identität (Name,
-                Alter, Passwort, etc.) zu kreieren.
-            </li>
-        </ul>
-    </div>
 
     {{--    --}}
     <div class="container mx-auto">
@@ -127,39 +108,30 @@
                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                    name="password_confirmation" required autocomplete="new-password">
                         </div>
-
-                        <div class="flex flex-wrap mb-6">
+                        @error('dataPrivacy')
+                        <p class="text-red-500 text-xs italic ">
+                            Bitte bestätige dieses Feld.
+                        </p>
+                        @enderror
+                        <div class="flex flex-wrap mb-4">
                             <label class="block">
                                 <input class="mr-2 leading-tight" type="checkbox" name="dataPrivacy">
                                 <span class="text-sm">Ich bin mir bewusst und wurde darüber aufgeklärt, dass <span
                                         class="font-semibold">meine eingegebenen Daten nicht sicher bzw. geschützt sind</span> und ich eine imaginäre Identität annehmen kann.</span>
                             </label>
                         </div>
-                        @error('dataPrivacy')
-                        <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
+                        @error('tos')
+                        <p class="text-red-500 text-xs italic ">
+                            Bitte bestätige dieses Feld.
                         </p>
                         @enderror
-
-                        <div class="flex flex-wrap mb-6">
+                        <div class="flex flex-wrap mb-4">
                             <label class="block">
                                 <input class="mr-2 leading-tight" type="checkbox" name="tos">
                                 <span class="text-sm">Ich habe die <a href="{{ route('tos') }}" target="_blank"
                                                                       class="text-primary">Nutzungsbedingungen</a> und <a
                                         href="{{ route('privacy') }}" target="_blank" class="text-primary">Datenschutzbestimmungen</a> gelesen und bin damit einverstanden.
                                 </span>
-                            </label>
-                        </div>
-                        @error('tos')
-                        <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
-                        </p>
-                        @enderror
-
-                        <div class="flex flex-wrap mb-6">
-                            <label class="block">
-                                <input class="mr-2 leading-tight" type="checkbox" name="showMail">
-                                <span class="text-sm">Ich bin damit einverstanden, dass andere Nutzer meine E-Mail-Adresse sehen können. Diese Einstellung kann im Nachhinein in deinem Profil angepasst werden.</span>
                             </label>
                         </div>
 
